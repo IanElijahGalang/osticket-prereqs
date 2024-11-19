@@ -26,12 +26,15 @@ A virtual machine named osticket-vm was created in Microsoft Azure. This serves 
 IIS (Internet Information Services) was installed and configured to host web applications.
 CGI (Common Gateway Interface) was enabled to allow IIS to run dynamic scripts, allowing osTicket’s PHP-based functionality.
 PHP Manager for IIS and the Rewrite Module were installed. The PHP Manager enables IIS to run PHP scripts (necessary for osTicket), while the Rewrite Module ensures clean and functional URLs.
+
 <h2>3. Installing PHP and Supporting Files</h2>
 A folder was created on the C: drive to store PHP files (PHP-7.38...). These files include the core PHP language libraries needed to run osTicket.
 The VC-redist.x86 file was installed to provide necessary Microsoft Visual C++ runtime libraries, ensuring osTicket can run correctly.
+
 <h2>4. Installing MySQL and Setting Up the Database</h2>
 MySQL was installed to provide the database where osTicket will store its data (like user accounts and ticketing information).
 A new database named "osTicket" was created using HeidiSQL for the backend data storage.
+
 <h2>5. Final Configuration of osTicket</h2>
 The osTicket files were extracted, and the ‘upload’ folder was renamed to “osTicket” and placed in the wwwroot directory.
 IIS was configured to recognize PHP and required PHP extensions (like php_imap.dll, php_opcache.dll) were enabled.
