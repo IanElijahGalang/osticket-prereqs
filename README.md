@@ -5,7 +5,6 @@
 <h1>osTicket - Prerequisites and Installation</h1>
 This tutorial outlines the prerequisites and installation of the open-source help desk ticketing system osTicket.<br />
 
-
 <h2>Environments and Technologies Used</h2>
 
 - Microsoft Azure (Virtual Machines/Compute)
@@ -17,27 +16,87 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 - Windows 10</b> (21H2)
 
 <h1>STEPS FOR OSTICKET PREREQS AND INSTALLATION</h1>
+<img width="782" alt="osticket-installation-files" src="https://github.com/user-attachments/assets/ea6f3657-19ae-4ec6-9613-364feac5ac13">
 
+<h2>Step 1: Create a Virtual Machine in Microsoft Azure</h2>
+Action: Create a virtual machine (VM) in Microsoft Azure titled "osticket-vm".
+Purpose: This VM will be used as the environment for hosting and installing osTicket. 
 
-<h2>1. Creating the Virtual Machine in Azure</h2>
-A virtual machine named osticket-vm was created in Microsoft Azure. This serves as the environment where osTicket will be installed and run.
+<h2>Step 2: Extract Installation Files and Enable IIS with CGI</h2>
+Action:
+Extract the osTicket installation files into the VM.
+Install IIS (Internet Information Services), which is a web server for hosting web applications.
+Enable CGI (Common Gateway Interface) on IIS.
+Purpose:
+IIS will host the osTicket web application.
+CGI allows IIS to run dynamic scripts, such as PHP, needed for osTicket to work properly. Without CGI, IIS would only be able to serve static pages.
 
-<h2>2. Setting Up IIS and PHP Environment</h2>
-IIS (Internet Information Services) was installed and configured to host web applications.
-CGI (Common Gateway Interface) was enabled to allow IIS to run dynamic scripts, allowing osTicket’s PHP-based functionality.
-PHP Manager for IIS and the Rewrite Module were installed. The PHP Manager enables IIS to run PHP scripts (necessary for osTicket), while the Rewrite Module ensures clean and functional URLs.
+<h2>Step 3: Install PHP Manager for IIS and the Rewrite Module</h2>
+Action:
+Install PHP Manager for IIS.
+Install the URL Rewrite Module for IIS.
+Purpose:
+PHP Manager allows IIS to run PHP, which osTicket is built with.
+The Rewrite Module enables clean and user-friendly URLs for osTicket, improving both SEO and usability.
 
-<h2>3. Installing PHP and Supporting Files</h2>
-A folder was created on the C: drive to store PHP files (PHP-7.38...). These files include the core PHP language libraries needed to run osTicket.
-The VC-redist.x86 file was installed to provide necessary Microsoft Visual C++ runtime libraries, ensuring osTicket can run correctly.
+<h2>Step 4: Create a PHP Folder and Extract PHP Files</h2>
+Action:
+Create a folder on the C: drive to store the PHP files.
+Extract the PHP-7.38 files into this folder.
+Purpose: These PHP files are necessary for running osTicket. They provide the core PHP language support for dynamic content processing.
 
-<h2>4. Installing MySQL and Setting Up the Database</h2>
-MySQL was installed to provide the database where osTicket will store its data (like user accounts and ticketing information).
-A new database named "osTicket" was created using HeidiSQL for the backend data storage.
+<h2>Step 5: Install VC-redist.x86</h2>
+Action: Install the VC-redist.x86 file.
+Purpose:
+This package installs the necessary Microsoft Visual C++ Runtime libraries that osTicket requires to function properly on your computer.
+Without this, osTicket might not run or may experience errors related to missing runtime components.
 
-<h2>5. Final Configuration of osTicket</h2>
-The osTicket files were extracted, and the ‘upload’ folder was renamed to “osTicket” and placed in the wwwroot directory.
-IIS was configured to recognize PHP and required PHP extensions (like php_imap.dll, php_opcache.dll) were enabled.
-Permissions were set on the ost-sampleconfig.php file, renaming it to ost-config.php and granting full control for installation.
-After completing the setup, osTicket's installer was accessed via the browser, and the MySQL database was updated with the necessary data.
+<h2>Step 6: Install MySQL</h2>
+Action: Install MySQL on the server to create the database for osTicket.
+Set the root password as “root”.
+Purpose: MySQL will be used to store all osTicket data, including user accounts, ticket information, and other backend data necessary for the system to operate.
+
+<h2>Step 7: Open IIS and Configure PHP</h2>
+Action: Open Internet Information Services (IIS) as an administrator.
+Configure IIS to be aware of the PHP installation.
+Purpose: Ensures that IIS can handle PHP scripts and serve dynamic content from osTicket.
+
+<h2>Step 8: Extract osTicket Files and Configure Directories</h2>
+Action:
+Extract the osTicket files from the installation folder.
+Rename the ‘upload’ folder to "osTicket".
+Move the "osTicket" folder into the wwwroot folder, located under inetpub on the C: drive.
+Purpose: Ensures that the osTicket files are in the correct directory for IIS to serve them.
+
+<h2>Step 9: Configure IIS for osTicket</h2>
+Action:
+In IIS, navigate to Sites > Default > osTicket.
+Click *Browse :80 to open the osTicket installer in the browser.
+Enable the required PHP extensions in the PHP Manager for IIS:
+php_imap.dll
+php_intl.dll
+php_opcache.dll
+Purpose:
+The extensions are necessary for osTicket to handle email functionality, internationalization, and performance optimization.
+Ensures that osTicket's web interface is properly loaded in the browser.
+
+<h2>Step 10: Change Config File and Set Permissions</h2>
+Action:
+Rename ost-sampleconfig.php to ost-config.php.
+Assign full control permissions to everyone for this file.
+Purpose: The config file holds important settings for osTicket. Setting the proper permissions ensures that the installation process can complete without permission errors.
+
+<h2>Step 11: Finalize osTicket Installation in the Browser</h2>
+Action:
+Complete the osTicket installation by accessing the installer through the browser.
+Follow the installation prompts to configure the osTicket system.
+Purpose: This step initializes the osTicket system and sets up the necessary backend and configuration files.
+
+<h2>Step 12: Install HeidiSQL and Create osTicket Database</h2>
+Action: Install HeidiSQL and use it to create a new database named "osTicket".
+Purpose: HeidiSQL is a tool used to manage MySQL databases. Creating the osTicket database ensures that osTicket can store and retrieve data from the backend MySQL database.
+
+<h2>Step 13: Final Database Setup and Updates</h2>
+Action: Once the installation is complete, the osTicket database will be populated with necessary data files.
+Purpose: This step ensures that the osTicket database is fully configured with all the required files for the system to operate effectively.
 
