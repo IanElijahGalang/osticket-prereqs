@@ -73,7 +73,7 @@ Extract the osTicket files from the installation folder.
 Rename the ‘upload’ folder to "osTicket".<br>
 Move the "osTicket" folder into the wwwroot folder, located under inetpub on the C: drive.
 <br>Purpose: Ensures that the osTicket files are in the correct directory for IIS to serve them.
-<img width="782" alt="osticket-installation-files" src="https://github.com/user-attachments/assets/e88b99bd-074b-4246-9914-6624b7e74263">
+<img width="784" alt="osTicket file folder" src="https://github.com/user-attachments/assets/becd2582-ce30-41b4-813a-bfd3b421e66d">
 
 <h2>Step 9: Configure IIS for osTicket</h2>
 Action:
