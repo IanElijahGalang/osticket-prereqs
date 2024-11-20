@@ -58,7 +58,7 @@ Without this, osTicket might not run or may experience errors related to missing
 <h2>Step 6: Install MySQL</h2>
 Action: Install MySQL on the server to create the database for osTicket.
 Set the root password as “root”.<br>
-<br>Purpose: MySQL will be used to store all osTicket data, including user accounts, ticket information, and other backend data necessary for the system to operate.
+<br>Purpose: MySQL will be used to store all osTicket data, including user accounts, ticket information, and other backend data necessary for the system to operate.<br>
 <img width="499" alt="mySQL configuration" src="https://github.com/user-attachments/assets/004731a5-bc44-4935-8c69-b9514649688d">
 
 <h2>Step 7: Open IIS and Configure PHP</h2>
@@ -71,7 +71,7 @@ Configure IIS to be aware of the PHP installation.<br>
 Action:
 Extract the osTicket files from the installation folder.
 Rename the ‘upload’ folder to "osTicket".<br>
-Move the "osTicket" folder into the wwwroot folder, located under inetpub on the C: drive.
+Move the "osTicket" folder into the wwwroot folder, located under inetpub on the C: drive.<br>
 <br>Purpose: Ensures that the osTicket files are in the correct directory for IIS to serve them.
 <img width="784" alt="osTicket file folder" src="https://github.com/user-attachments/assets/becd2582-ce30-41b4-813a-bfd3b421e66d">
 
